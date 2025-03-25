@@ -1,6 +1,6 @@
 
 import { Property } from "@/types/property";
-import { Bed, Bath, SquareFoot, Clock, Home } from "lucide-react";
+import { Bed, Bath, Square, Clock, Home } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
@@ -62,7 +62,7 @@ const PropertyDetails = ({ property }: PropertyDetailsProps) => {
           
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
-              <SquareFoot size={20} />
+              <Square size={20} />
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Square Feet</p>

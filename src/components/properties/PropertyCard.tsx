@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Property } from "@/types/property";
-import { Bed, Bath, SquareFoot, Heart } from "lucide-react";
+import { Bed, Bath, Square, Heart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
@@ -79,7 +79,7 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
             <span>{property.bathrooms} ba</span>
           </div>
           <div className="flex items-center gap-1">
-            <SquareFoot size={16} />
+            <Square size={16} />
             <span>{property.squareFeet.toLocaleString()} sq ft</span>
           </div>
         </div>

@@ -204,7 +204,7 @@ const Properties = () => {
                         {property.bathrooms} ba
                       </span>
                       <span className="flex items-center gap-1">
-                        <SquareFoot size={16} />
+                        <Square size={16} />
                         {property.squareFeet.toLocaleString()} sq ft
                       </span>
                     </div>
@@ -218,7 +218,5 @@ const Properties = () => {
     </Layout>
   );
 };
-
-import { Bed, Bath, SquareFoot } from "lucide-react";
 
 export default Properties;
