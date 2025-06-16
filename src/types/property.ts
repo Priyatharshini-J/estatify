@@ -13,8 +13,8 @@ export interface Property {
   squareFeet: number;
   propertyType: string;
   yearBuilt: number;
-  images: string[];
-  features: string[];
+  images: string;
+  features: string;
   lat: number;
   lng: number;
   isFeatured?: boolean;

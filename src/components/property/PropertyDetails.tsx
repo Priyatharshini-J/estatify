@@ -1,4 +1,3 @@
-
 import { Property } from "@/types/property";
 import { Bed, Bath, Square, Clock, Home } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -9,19 +8,21 @@ interface PropertyDetailsProps {
 }
 
 const PropertyDetails = ({ property }: PropertyDetailsProps) => {
-  const formattedPrice = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  const formattedPrice = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
     maximumFractionDigits: 0,
   }).format(property.price);
+
+  const formattedFeatures: string[] = property.features
+    .split('", "')
+    .map((url) => url.replace(/^"|"$/g, ""));
 
   return (
     <div className="space-y-6">
       <div className="space-y-2">
         <div className="flex items-center gap-2">
-          <Badge variant="outline">
-            {property.propertyType}
-          </Badge>
+          <Badge variant="outline">{property.propertyType}</Badge>
           {property.isFeatured && (
             <Badge className="bg-primary text-primary-foreground">
               Featured
@@ -30,7 +31,8 @@ const PropertyDetails = ({ property }: PropertyDetailsProps) => {
         </div>
         <h1 className="text-3xl font-bold tracking-tight">{property.title}</h1>
         <p className="text-muted-foreground">
-          {property.address}, {property.city}, {property.state} {property.zipCode}
+          {property.address}, {property.city}, {property.state}{" "}
+          {property.zipCode}
         </p>
       </div>
 
@@ -38,7 +40,7 @@ const PropertyDetails = ({ property }: PropertyDetailsProps) => {
         <div>
           <p className="text-3xl font-bold">{formattedPrice}</p>
         </div>
-        
+
         <div className="flex items-center flex-wrap gap-4 py-2">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
@@ -49,7 +51,7 @@ const PropertyDetails = ({ property }: PropertyDetailsProps) => {
               <p className="font-medium">{property.bedrooms}</p>
             </div>
           </div>
-          
+
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
               <Bath size={20} />
@@ -59,14 +61,16 @@ const PropertyDetails = ({ property }: PropertyDetailsProps) => {
               <p className="font-medium">{property.bathrooms}</p>
             </div>
           </div>
-          
+
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
               <Square size={20} />
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Square Feet</p>
-              <p className="font-medium">{property.squareFeet.toLocaleString()}</p>
+              <p className="font-medium">
+                {property.squareFeet.toLocaleString()}
+              </p>
             </div>
           </div>
         </div>
@@ -81,19 +85,19 @@ const PropertyDetails = ({ property }: PropertyDetailsProps) => {
             {property.description}
           </p>
         </div>
-        
+
         <div className="space-y-6">
           <div>
             <h2 className="text-xl font-semibold mb-4">Features</h2>
             <div className="flex flex-wrap gap-2">
-              {property.features.map((feature) => (
+              {formattedFeatures.map((feature) => (
                 <Badge key={feature} variant="secondary">
                   {feature}
                 </Badge>
               ))}
             </div>
           </div>
-          
+
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <p className="text-sm text-muted-foreground">Property Type</p>
@@ -102,7 +106,7 @@ const PropertyDetails = ({ property }: PropertyDetailsProps) => {
                 <p>{property.propertyType}</p>
               </div>
             </div>
-            
+
             <div className="space-y-1.5">
               <p className="text-sm text-muted-foreground">Year Built</p>
               <div className="flex items-center gap-2">

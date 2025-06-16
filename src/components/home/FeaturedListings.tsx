@@ -1,38 +1,67 @@
-
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PropertyCard from "@/components/properties/PropertyCard";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { properties } from "@/data/properties";
+import axios from "axios";
+import LoadingSpinner from "../ui/loading-spinner";
 
 const FeaturedListings = () => {
-  const featuredProperties = properties.filter(property => property.isFeatured);
+  const [properties, setProperties] = useState([]);
+  const [isFetching, setIsFetching] = useState(true);
+  useEffect(() => {
+    const fetchProperties = async () => {
+      try {
+        const res = await axios.get(
+          `https://slate-template-apps-773793963.development.catalystserverless.com/server/estatify_routes_handler/properties`
+        );
 
+        setProperties(res.data);
+      } catch (err) {
+        console.error("Failed to fetch order", err);
+      } finally {
+        setIsFetching(false);
+      }
+    };
+
+    fetchProperties();
+  }, []);
+
+  const featuredProperties = properties.filter(
+    (property) => property.isFeatured
+  );
   return (
-    <section className="py-16">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10">
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight">Featured Listings</h2>
-            <p className="text-muted-foreground mt-2">
-              Explore our handpicked selection of exceptional properties
-            </p>
-          </div>
-          <Link to="/properties" className="mt-4 md:mt-0">
-            <Button variant="outline">View All Properties</Button>
-          </Link>
-        </div>
+    <>
+      {isFetching ? (
+        <LoadingSpinner />
+      ) : (
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10">
+              <div>
+                <h2 className="text-3xl font-bold tracking-tight">
+                  Featured Listings
+                </h2>
+                <p className="text-muted-foreground mt-2">
+                  Explore our handpicked selection of exceptional properties
+                </p>
+              </div>
+              <Link to="/properties" className="mt-4 md:mt-0">
+                <Button variant="outline">View All Properties</Button>
+              </Link>
+            </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredProperties.map((property) => (
-            <Suspense key={property.id} fallback={<PropertyCardSkeleton />}>
-              <PropertyCard property={property} />
-            </Suspense>
-          ))}
-        </div>
-      </div>
-    </section>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {featuredProperties.map((property) => (
+                <Suspense key={property.id} fallback={<PropertyCardSkeleton />}>
+                  <PropertyCard property={property} />
+                </Suspense>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+    </>
   );
 };
 

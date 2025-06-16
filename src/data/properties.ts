@@ -65,9 +65,7 @@ export const properties: Property[] = [
     propertyType: "Estate",
     yearBuilt: 2010,
     images: [
-      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=2074&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?q=80&w=2025&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=2074&auto=format&fit=crop", "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?q=80&w=2070&auto=format&fit=crop", "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?q=80&w=2025&auto=format&fit=crop"
     ],
     features: ["Waterfront", "Home Theater", "Wine Cellar", "Dock", "Mountain View"],
     lat: 47.6062,
@@ -89,9 +87,7 @@ export const properties: Property[] = [
     propertyType: "Townhouse",
     yearBuilt: 1890,
     images: [
-      "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576941089067-2de3c901e126?q=80&w=2080&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=2070&auto=format&fit=crop", "https://images.unsplash.com/photo-1576941089067-2de3c901e126?q=80&w=2080&auto=format&fit=crop", "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070&auto=format&fit=crop"
     ],
     features: ["Historic", "Renovated", "Crown Molding", "Park Nearby", "Public Transit"],
     lat: 42.3601,
@@ -113,9 +109,7 @@ export const properties: Property[] = [
     propertyType: "Single Family",
     yearBuilt: 2020,
     images: [
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?q=80&w=2065&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1560185007-5f0bb1866cab?q=80&w=2070&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2070&auto=format&fit=crop", "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?q=80&w=2065&auto=format&fit=crop", "https://images.unsplash.com/photo-1560185007-5f0bb1866cab?q=80&w=2070&auto=format&fit=crop"
     ],
     features: ["Eco-Friendly", "Solar Panels", "Energy Efficient", "Sustainable", "LEED Certified"],
     lat: 45.5051,
@@ -137,9 +131,7 @@ export const properties: Property[] = [
     propertyType: "Condo",
     yearBuilt: 2008,
     images: [
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600607687644-c7f34b5063c7?q=80&w=2070&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop", "https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=2070&auto=format&fit=crop", "https://images.unsplash.com/photo-1600607687644-c7f34b5063c7?q=80&w=2070&auto=format&fit=crop"
     ],
     features: ["Beachfront", "Pool", "Fitness Center", "Spa", "Security"],
     lat: 25.7617,
@@ -161,9 +153,7 @@ export const properties: Property[] = [
     propertyType: "Cabin",
     yearBuilt: 2015,
     images: [
-      "https://images.unsplash.com/photo-1575517111839-3a3843ee7cd5?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1575517111839-3a3843ee7cd5?q=80&w=2070&auto=format&fit=crop", "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop", "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
     ],
     features: ["Mountain View", "Fireplace", "Exposed Beams", "Hiking Nearby", "Skiing Nearby"],
     lat: 39.1911,
@@ -185,9 +175,7 @@ export const properties: Property[] = [
     propertyType: "Single Family",
     yearBuilt: 1962,
     images: [
-      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=2065&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2074&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=2070&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=2065&auto=format&fit=crop", "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2074&auto=format&fit=crop", "https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=2070&auto=format&fit=crop"
     ],
     features: ["Midcentury", "Pool", "Terrazzo", "Desert View", "Architectural"],
     lat: 33.8303,

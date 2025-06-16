@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Property } from "@/types/property";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -15,25 +14,31 @@ const PropertyGallery = ({ property }: PropertyGalleryProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
 
+  const imageUrls: string[] = property.images
+    .split('", "')
+    .map((url) => url.replace(/^"|"$/g, ""));
+
   const handleImageLoad = (index: number) => {
-    setLoadedImages(prev => ({
+    setLoadedImages((prev) => ({
       ...prev,
-      [index]: true
+      [index]: true,
     }));
   };
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % property.images.length);
+    setCurrentImageIndex((prev) => (prev + 1) % imageUrls.length);
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + property.images.length) % property.images.length);
+    setCurrentImageIndex(
+      (prev) => (prev - 1 + imageUrls.length) % imageUrls.length
+    );
   };
 
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-        <div 
+        <div
           className="relative rounded-xl overflow-hidden cursor-pointer h-[400px]"
           onClick={() => {
             setCurrentImageIndex(0);
@@ -42,7 +47,7 @@ const PropertyGallery = ({ property }: PropertyGalleryProps) => {
         >
           {!loadedImages[0] && <div className="absolute inset-0 skeleton" />}
           <img
-            src={property.images[0]}
+            src={imageUrls[0]}
             alt={`${property.title} main image`}
             className={cn(
               "w-full h-full object-cover transition-opacity duration-300",
@@ -56,10 +61,10 @@ const PropertyGallery = ({ property }: PropertyGalleryProps) => {
             </Button>
           </div>
         </div>
-        
+
         <div className="grid grid-cols-2 gap-4">
-          {property.images.slice(1, 5).map((image, index) => (
-            <div 
+          {imageUrls.slice(1, 5).map((image, index) => (
+            <div
               key={index + 1}
               className="relative rounded-xl overflow-hidden cursor-pointer h-[190px]"
               onClick={() => {
@@ -67,7 +72,9 @@ const PropertyGallery = ({ property }: PropertyGalleryProps) => {
                 setFullScreen(true);
               }}
             >
-              {!loadedImages[index + 1] && <div className="absolute inset-0 skeleton" />}
+              {!loadedImages[index + 1] && (
+                <div className="absolute inset-0 skeleton" />
+              )}
               <img
                 src={image}
                 alt={`${property.title} image ${index + 2}`}
@@ -94,14 +101,16 @@ const PropertyGallery = ({ property }: PropertyGalleryProps) => {
             >
               <X size={20} />
             </Button>
-            
+
             <div className="relative h-full w-full flex items-center justify-center">
               <img
-                src={property.images[currentImageIndex]}
-                alt={`${property.title} fullscreen gallery image ${currentImageIndex + 1}`}
+                src={imageUrls[currentImageIndex]}
+                alt={`${property.title} fullscreen gallery image ${
+                  currentImageIndex + 1
+                }`}
                 className="max-h-full max-w-full object-contain rounded-lg"
               />
-              
+
               <Button
                 variant="ghost"
                 size="icon"
@@ -113,7 +122,7 @@ const PropertyGallery = ({ property }: PropertyGalleryProps) => {
               >
                 <ChevronLeft size={24} />
               </Button>
-              
+
               <Button
                 variant="ghost"
                 size="icon"
@@ -126,14 +135,16 @@ const PropertyGallery = ({ property }: PropertyGalleryProps) => {
                 <ChevronRight size={24} />
               </Button>
             </div>
-            
+
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 glass-effect px-3 py-2 rounded-full">
-              {property.images.map((_, index) => (
+              {imageUrls.map((_, index) => (
                 <button
                   key={index}
                   className={cn(
                     "w-2 h-2 rounded-full transition-all",
-                    currentImageIndex === index ? "bg-primary w-4" : "bg-muted-foreground"
+                    currentImageIndex === index
+                      ? "bg-primary w-4"
+                      : "bg-muted-foreground"
                   )}
                   onClick={() => setCurrentImageIndex(index)}
                   aria-label={`View image ${index + 1}`}
