@@ -21,3 +21,4 @@ This project is built with .
 - Slate
 - Functions
 - Datastore
+- Public stratus bucket
