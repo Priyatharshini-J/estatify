@@ -1,4 +1,4 @@
-# Welcome to your Estatify project
+# Welcome to your Estatify project backend
 
 ## Project info
 
